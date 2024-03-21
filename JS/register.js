@@ -1,3 +1,4 @@
+
 const forms = document.querySelector(".forms"),
       pwShowHide = document.querySelectorAll(".eye-icon"),
       links = document.querySelectorAll(".link");
@@ -40,8 +41,7 @@ const passwordError = document.getElementById("passwordError");
 const rePasswordError = document.getElementById("rePasswordError");
 
 //Lấy dữ liệu từ localStorage
-const userLocal =JSON.parse(localStorage.getItem("users")) || [];
-
+let userLocal = JSON.parse(localStorage.getItem("users")) || [];
 
 
 // Lắng nghe sự kiện submit form đăng kí tài khoản
@@ -116,14 +116,25 @@ formRegister.addEventListener("submit", function(e){
             email: emailElement.value,
             password: passwordElement.value,
             address: addressElement.value,
-
         };
+
+        // Lấy dữ liệu từ localStorage
+        const userLocalString = localStorage.getItem("users");
+        let userLocal = userLocalString ? JSON.parse(userLocalString) : [];
+
+        // Kiểm tra và khởi tạo nếu cần
+        if(!Array.isArray(userLocal)){
+            userLocal = [];
+        }
 
         //Pusu user vào trong mảng userLocal
         userLocal.push(user);
+
+        //Lưu dữ liệu lên local
+        localStorage.setItem("users", JSON.stringify(userLocal)) ;
+
+        // Xử lý giá trị undefined trước khi stringigy
         
-    //Lưu dữ liệu lên local
-    localStorage.setItem("users",JSON.stringify())
 
     //Chuyển hướng về trang đăng nhập 
     setTimeout(function(){
