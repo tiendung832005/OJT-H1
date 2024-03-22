@@ -5,8 +5,9 @@ function addCustomer() {
     var name = document.getElementById("name").value;
     var email = document.getElementById("email").value;
     var address = document.getElementById("address").value;
+    var phone = document.getElementById("phone").value; // Lấy giá trị số điện thoại từ trường nhập liệu
 
-    if (name === "" || email === "" || address === "") {
+    if (name === "" || email === "" || address === "" || phone === "") { // Kiểm tra xem có đủ thông tin không
         alert("Vui lòng điền đầy đủ thông tin của khách hàng.");
         return;
     }
@@ -16,15 +17,18 @@ function addCustomer() {
         name: name,
         email: email,
         address: address,
-        banned: false // Thêm trường banned, mặc định là false
+        phone: phone, // Thêm số điện thoại vào đối tượng khách hàng
+        banned: false
     };
 
     customers.push(customer);
     displayCustomers();
 
+    // Xóa nội dung trường nhập sau khi thêm khách hàng
     document.getElementById("name").value = "";
     document.getElementById("email").value = "";
     document.getElementById("address").value = "";
+    document.getElementById("phone").value = "";
 }
 
 function displayCustomers() {
@@ -38,22 +42,23 @@ function displayCustomers() {
         row += "<td>" + customer.name + "</td>";
         row += "<td>" + customer.email + "</td>";
         row += "<td>" + customer.address + "</td>";
-        row += "<td>" + (customer.banned ? "Đã khóa" : "Hoạt động") + "</td>"; // Hiển thị trạng thái banned hoặc hoạt động
-        row += "<td><button onclick='toggleBan(" + i + ")'>" + (customer.banned ? "Unban" : "Ban") + "</button></td>"; // Thêm button để ban hoặc unban
+        row += "<td>" + customer.phone + "</td>"; // Hiển thị số điện thoại
+        row += "<td>" + (customer.banned ? "Đã khóa" : "Hoạt động") + "</td>";
+        row += "<td><button onclick='toggleBan(" + i + ")'>" + (customer.banned ? "Unban" : "Ban") + "</button></td>";
         row += "</tr>";
         tableBody.innerHTML += row;
     }
 }
 
 function toggleBan(index) {
-    customers[index].banned = !customers[index].banned; // Đảo ngược trạng thái banned
+    customers[index].banned = !customers[index].banned;
     displayCustomers();
 }
 
 function initializeData() {
-    customers.push({ id: ++customerCount, name: "Nguyễn Văn A", email: "nguyenvana@example.com", address: "123 Đường ABC, Quận XYZ, Thành phố HCM", banned: false });
-    customers.push({ id: ++customerCount, name: "Trần Thị B", email: "tranthib@example.com", address: "456 Đường DEF, Quận UVW, Thành phố Hanoi", banned: false });
-    customers.push({ id: ++customerCount, name: "Lê Văn C", email: "levanc@example.com", address: "789 Đường GHI, Quận MNO, Thành phố Đà Nẵng", banned: false });
+    customers.push({ id: ++customerCount, name: "Nguyễn Văn A", email: "nguyenvana@gmail.com", address: "Thành phố HCM", phone: "0123456789", banned: false });
+    customers.push({ id: ++customerCount, name: "Trần Thị B", email: "tranthib@gmail.com", address: "Thành phố Hanoi", phone: "0987654321", banned: false });
+    customers.push({ id: ++customerCount, name: "Lê Văn C", email: "levanc@gmail.com", address: "Thành phố Đà Nẵng", phone: "0369852147", banned: false });
 
     displayCustomers();
 }
