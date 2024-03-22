@@ -1,4 +1,4 @@
-// scripts.js
+
 var customers = [];
 
 window.onload = function() {
