@@ -367,5 +367,21 @@ height: 200px;
     padding: 10px;
     font-size: 21px;
 }
+#userLogin{
+    margin-left: 10px;
+    cursor: pointer;
+}
+#userLogin:hover + #userOptions {
+    display: none;
+    position: absolute;
+    background: #fff;
+    padding: 10px;
+    z-index: 1;
+}
+.user{
+    display: flex;
+    flex-direction: column;
+}
+
 
 

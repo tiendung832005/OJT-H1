@@ -1,14 +1,46 @@
 // Lấy dữ liệu trên local
-const userLogin = JSON.parse(localStorage.getItem("userLogin")) ;
+const userLogin = JSON.parse(localStorage.getItem("userLogin"));
 
 const userLoginElement = document.getElementById("userLogin");
+const signUpLink = document.querySelector('.sign-up');
+const signInLink = document.querySelector('.sign-in');
+const userOptions = document.getElementById("userOptions");
 
-if(userLogin){
-    // Hiển thị tên user đang đăng nhập lên header
-    userLoginElement.innerHTML = userLogin.userName;
-}else{
-    userLoginElement.innerHTML = ""
+let userOptionsVisible = false; // Biến để kiểm tra trạng thái hiển thị của thanh tùy chọn
+
+if (userLogin) {
+  // Hiển thị tên user đang đăng nhập lên header
+  userLoginElement.textContent = userLogin.userName;
+  // Ẩn các liên kết "Đăng kí" và "Đăng nhập"
+  signUpLink.style.display = 'none';
+  signInLink.style.display = 'none';
+} else {
+  userLoginElement.textContent = "";
+  // Hiển thị các liên kết "Đăng kí" và "Đăng nhập"
+  signUpLink.style.display = 'inline-block';
+  signInLink.style.display = 'inline-block';
 }
+
+// Hiển thị hoặc ẩn thanh tùy chọn khi click vào tên người dùng
+userLoginElement.addEventListener("click", function() {
+  if (userOptionsVisible) {
+    userOptions.style.display = 'none';
+    userOptionsVisible = false;
+  } else {
+    userOptions.style.display = 'block';
+    userOptionsVisible = true;
+  }
+});
+
+// Xử lý sự kiện đăng xuất
+document.getElementById("logout").addEventListener("click", function() {
+  localStorage.removeItem("userLogin");
+  location.reload(); // Reload the page after logout
+  userOptions.style.display = 'none'; // Ẩn thanh tùy chọn khi đăng xuất
+  userOptionsVisible = false; // Đặt lại trạng thái của biến
+});
+
+
 
 // // Mảng chứa sản phẩm
 // let products = [

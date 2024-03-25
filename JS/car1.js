@@ -21,8 +21,7 @@ let id = JSON.parse(localStorage.getItem("keyDetail"));
 
 let product = containers.find(function (e, i){
   return e.id === id;
-})
-console.log("1111111",product);
+});
 
 
 
