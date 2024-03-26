@@ -142,16 +142,17 @@ table{
 #myBtn:hover{
     background-color: black;
 }
-.btn{
-    margin-left: 89%;
+.btn-add-to-cart{
+    margin-left: 90%;
     position: absolute;
-    top: 664px;
+    top: 505px;
     justify-content: center;
     background-color: #474fa0;
     color: #fff;
     border-radius: 0.5rem;
     padding: 10px;
 }
-.btn:hover{
+.btn-add-to-cart:hover{
     background: #FFA07A;
+    cursor: pointer;
 }

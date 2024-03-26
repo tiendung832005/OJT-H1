@@ -116,6 +116,7 @@ formRegister.addEventListener("submit", function(e){
             email: emailElement.value,
             password: passwordElement.value,
             address: addressElement.value,
+            cart: []
         };
 
         // Lấy dữ liệu từ localStorage
@@ -132,8 +133,6 @@ formRegister.addEventListener("submit", function(e){
 
         //Lưu dữ liệu lên local
         localStorage.setItem("users", JSON.stringify(userLocal)) ;
-
-        // Xử lý giá trị undefined trước khi stringigy
         
 
     //Chuyển hướng về trang đăng nhập 

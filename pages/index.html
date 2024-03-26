@@ -79,19 +79,27 @@
             z-index: 1;
           "
         >
-        <div class="user">
-          <a href="#" id="myAccount" style="color: black">Tài khoản của tôi</a>
-          <a href="#" id="myOrders" style="color: black">Đơn mua</a>
-          <a href="#" id="logout" style="color: black">Đăng xuất</a>
+          <div class="user">
+            <a href="#" id="myAccount" style="color: black"
+              >Tài khoản của tôi</a
+            >
+            <a href="../pages/cart.html" id="myOrders" style="color: black"
+              >Đơn mua</a
+            >
+            <a href="#" id="logout" style="color: black">Đăng xuất</a>
+          </div>
         </div>
-      </div>
         <br />
-        <span
-          style="color: #fff; margin-top: 40px; cursor: pointer"
-          class="material-symbols-outlined icon-shopping"
-          >shopping_cart</span
+        <a href="../pages/cart.html"
+          ><span
+            style="color: #fff; margin-top: 40px; cursor: pointer"
+            class="material-symbols-outlined icon-shopping"
+            >shopping_cart</span
+          ></a
         >
-        <span style="color: #fff">GIỎ HÀNG <br /> </span>
+        <a href="../pages/cart.html"
+          ><span style="color: #fff">GIỎ HÀNG <br /> </span
+        ></a>
       </div>
     </header>
 
@@ -192,11 +200,11 @@
             <input type="search" placeholder="Search place" />
           </div>
           <div class="input-box">
-            <span>Ngày thuê xe</span>
+            <span>Ngày xem xe</span>
             <input type="date" />
           </div>
           <div class="input-box">
-            <span>Ngày trả xe</span>
+            <span>Ngày mua xe</span>
             <input type="date" />
           </div>
           <input type="submit" class="btn" />
@@ -388,5 +396,6 @@
       </div>
     </div>
     <script src="../JS/index.js"></script>
+    <script src="../js/cart.js"></script>
   </body>
 </html>

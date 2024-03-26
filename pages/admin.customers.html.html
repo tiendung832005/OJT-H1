@@ -14,29 +14,21 @@
 
     <div class="sidebar">
         <div class="sidebar-brand">
-          <h2><span class="lab la-accusoft"></span> Mercedes</h2>
+          <h2><a href="../pages/index.html"><span class="lab la-accusoft"></span> Mercedes</a></h2>
         </div>
         <div class="sidebar-menu">
           <ul>
-            <li>
-              <a href="../pages/admin.dashboard.html" 
-                ><span class="las la-igloo"></span> <span>Dashboard</span></a
-              >
-            </li>
             <li>
               <a href="../pages/admin.customers.html.html" class="active"
                 ><span class="las la-users"></span> <span>Customers</span></a
               >
             </li>
             <li>
-              <a href=""
+              <a href="../pages/admin.products.html"
                 ><span class="las la-clipboard-list"></span
                 ><span>Products</span></a
               >
             </li>
-            <li>
-              <a href=""
-                ><span class="las la-shopping-bag"></span> <span>Orders</span></a>
           </ul>
         </div>
       </div>
@@ -80,6 +72,7 @@
                     <th>Tên</th>
                     <th>Email</th>
                     <th>Địa chỉ</th>
+                    <th>Mật khẩu</th>
                     <th>Thao tác</th>
                 </tr>
             </thead>
@@ -93,7 +86,7 @@
         <input type="text" id="name" placeholder="Tên">
         <input type="email" id="email" placeholder="Email">
         <input type="text" id="address" placeholder="Địa chỉ">
-        <input type="text" id="phone" placeholder="Số điện thoại">
+        <input type="text" id="phone" placeholder="Mật khẩu">
         <button onclick="addCustomer()">Thêm</button>
     </div>
 </div>

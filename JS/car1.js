@@ -1,29 +1,9 @@
-function myFunction(){
-    var dots = document.getElementById("dots");
-    var moreText = document.getElementById("more");
-    var btnText = document.getElementById("myBtn");
-
-    if(dots.style.display === "none"){
-        dots.style.display = "inline";
-        btnText.innerHTML = "Xem thêm";
-        moreText.style.display = "none";
-  } else {
-    dots.style.display = "none";
-    btnText.innerHTML = "Ẩn bớt"; 
-    moreText.style.display = "inline";
-  }
-}
-    
 let containers = JSON.parse(localStorage.getItem("products"));
-// console.log(containers);
-// Check id
 let id = JSON.parse(localStorage.getItem("keyDetail"));
 
-let product = containers.find(function (e, i){
+let product = containers.find(function (e, i) {
   return e.id === id;
 });
-
-
 
 document.getElementById("container").innerHTML = `
 <img src="${product.image}" alt="" width = "500px">
@@ -41,8 +21,8 @@ document.getElementById("container").innerHTML = `
   </div>
   <h2>GIÁ:${product.price}</h2>
 </div>
-`
-document.getElementById("table").innerHTML =`
+`;
+document.getElementById("table").innerHTML = `
 <table border="1px" style="width: 100%">
 <thead>
   <tr>
@@ -71,8 +51,34 @@ document.getElementById("table").innerHTML =`
   </tr>
 </tbody>
 </table>
-`
+`;
 
 
+function addToCart() {
+  alert("Sản phẩm đã được thêm vào giỏ hàng");
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const userLogin = JSON.parse(localStorage.getItem("userLogin")) || [];
 
+  const cart = userLogin.cart;
 
+  let index = -1;
+  for (let i = 0; i < cart.length; i++) {
+    if (cart[i].id == product.id) {
+      index = i;
+      break;
+    }
+  }
+
+  if (index == -1) {
+    cart.push({ ...product, quantity: 1 });
+  } else {
+    cart[index].quantity += 1;
+  }
+
+  userLogin.cart = cart;
+  localStorage.setItem("userLogin", JSON.stringify(userLogin));
+
+  const indexUser = users.findIndex((user) => user.userId == userLogin.userId);
+  users[indexUser] = userLogin;
+  localStorage.setItem("users", JSON.stringify(users));
+}

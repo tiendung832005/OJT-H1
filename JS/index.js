@@ -143,39 +143,13 @@ function renderProduct(){
         <h2>${products[i].price}</h2>
         <a href="#" class="btn payP">Mua </a>
         <br />
-        <a href="#" class="btn">Thêm vào giỏ</a>
+        <a href="#" class="btn addToCart">Thêm vào giỏ</a>
       </div>`
       
     }
     document.getElementById("products").innerHTML=element;
 }
 renderProduct();
-
-// Function đi mua hàng
-function addToCart(){
-    // Đăng nhập mới cho đi mua hàng
-
-    let checkLogin = JSON.parse(localStorage.getItem("checkLogin"));
-    if(checkLogin==null){
-        alert("Bạn phải đăng nhập để đi mua hàng");
-        return;
-    }
-    console.log("đi mua hàng bthg");
-    // Lấy giở hàng để đi mua
-    let users = JSON.parse(localStorage.getItem("users"));
-    // for(let i=0;i<users.length;i++){
-    //     if(users[i].id==checkLogin){
-    //         console.log("Giỏ hàng của bạn sẽ là: ", users[i].cart);
-    //         let product = JSON.parse(localStorage.getItem("products"));
-    //         for(let i=0;i<product.length;i++){
-    //             if(productId ==product[i].id){
-    //                 console.log("111",product[i]);
-    //             }
-    //         }  
-    //         break;
-    //     }
-    // }
-}
 for (let i = 0; i < products.length; i++) {
     const content = document.getElementsByClassName("payP")[i];
     content.addEventListener("click", load)
@@ -184,3 +158,7 @@ for (let i = 0; i < products.length; i++) {
             window.location.href = `./car1.html`;
         };
 }
+
+
+
+
