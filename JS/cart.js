@@ -17,10 +17,8 @@ function render() {
                       <td>${
                         userLogin.cart[i].quantity * userLogin.cart[i].price
                       }$</td>
-                     
                   </tr>`;
   }
   document.getElementById("tbody").innerHTML = text;
 }
-
 render();

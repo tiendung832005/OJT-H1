@@ -161,3 +161,27 @@ table tr, th, td{
 .editAll{
     padding:30px;
 }
+
+.add-customer input[type="text"],
+.add-customer input[type="email"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.add-customer button {
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-customer button:hover {
+    background-color: var(--main-color);
+}
